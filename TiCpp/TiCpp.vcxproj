@@ -18,6 +18,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Useful.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Inheritance.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{50F4FAAE-A004-41AB-BDCC-F699ADB64941}</ProjectGuid>
@@ -114,12 +120,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Useful.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Composition.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
