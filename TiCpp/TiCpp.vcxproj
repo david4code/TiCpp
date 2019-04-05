@@ -115,6 +115,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Useful.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Composition.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
