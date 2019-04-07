@@ -19,11 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Byte.h" />
-    <ClCompile Include="OperatorInheritance.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="require.h" />
+    <ClCompile Include="Instrument4.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

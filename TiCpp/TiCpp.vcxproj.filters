@@ -15,16 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Byte.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="OperatorInheritance.cpp">
+    <ClCompile Include="Instrument4.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="require.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
