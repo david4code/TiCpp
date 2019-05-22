@@ -1,81 +1,42 @@
-//: C15:Instrument4.cpp
-// Extensibility in OOP
+//: C15:ObjectSlicing.cpp
 #include <iostream>
+#include <string>
 using namespace std;
-enum note { middleC, Csharp, Cflat }; // Etc.
-class Instrument {
+class Pet {
+	string pname;
 public:
-	virtual void play(note) const {
-		cout << "Instrument::play" << endl;
+	Pet(const string& name) : pname(name) {}
+	Pet(const Pet& p) :pname(p.pname) {}
+	virtual string name() const { return pname; }
+	virtual string description() const {
+		return "This is " + pname;
 	}
-	virtual const char* what() const {
-		return "Instrument";
+	~Pet() {
+		cout << "Destruct Pet" << endl;
 	}
-	// Assume this will modify the object:
-	virtual void adjust(int) {}
 };
-class Wind : public Instrument {
+class Dog : public Pet {
+	string favoriteActivity;
 public:
-	void play(note) const {
-		cout << "Wind::play" << endl;
+	Dog(const string& name, const string& activity)
+		: Pet(name), favoriteActivity(activity) {}
+	Dog(const Dog& d) :favoriteActivity(d.favoriteActivity), Pet(d) {
 	}
-	const char* what() const { return "Wind"; }
-	void adjust(int) {}
-};
-class Percussion : public Instrument {
-public:
-	void play(note) const {
-		cout << "Percussion::play" << endl;
+	string description() const {
+		return Pet::name() + " likes to " +
+			favoriteActivity;
 	}
-	const char* what() const { return "Percussion"; }
-	void adjust(int) {}
-};
-class Stringed : public Instrument {
-public:
-	void play(note) const {
-		cout << "Stringed::play" << endl;
+	~Dog() {
+		cout << "Destruct Dog" << endl;
 	}
-	const char* what() const { return "Stringed"; }
-	void adjust(int) {}
 };
-class Brass : public Wind {
-public:
-	void play(note) const {
-		cout << "Brass::play" << endl;
-	}
-	const char* what() const { return "Brass"; }
-};
-class Woodwind : public Wind {
-public:
-	void play(note) const {
-		cout << "Woodwind::play" << endl;
-	}
-	const char* what() const { return "Woodwind"; }
-};
-// Identical function from before:
-void tune(Instrument& i) {
-	// ...
-	i.play(middleC);
+void describe(Pet p) { // Slices the object
+	cout << p.description() << endl;
 }
-// New function:
-void f(Instrument& i) { i.adjust(1); }
-// Upcasting during array initialization:
-Instrument* A[] = {
-new Wind,
-new Percussion,
-new Stringed,
-new Brass,
-};
 int main() {
-	Wind flute;
-	Percussion drum;
-	Stringed violin;
-	Brass flugelhorn;
-	Woodwind recorder;
-	tune(flute);
-	tune(drum);
-	tune(violin);
-	tune(flugelhorn);
-	tune(recorder);
-	f(flugelhorn);
+	Pet p("Alfred");
+	Dog d("Fluffy", "sleep");
+	Dog d1(d);
+	describe(p);
+	describe(d);
 } ///:~
