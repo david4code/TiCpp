@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="Instrument4.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="require.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{50F4FAAE-A004-41AB-BDCC-F699ADB64941}</ProjectGuid>
